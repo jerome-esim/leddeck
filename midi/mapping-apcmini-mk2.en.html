@@ -1,0 +1,295 @@
+<title>APC mini mk2 mapping</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#faf9f7; --surface:#fff; --ink:#14161a; --muted:#6c7480; --hairline:#dedbd4;
+  --deck-a:#0d93ad; --deck-b:#c43c74;
+  --fx:#4338ca; --fx-soft:#ebeafa; --pal:#0f766e; --pal-soft:#e2f3f0;
+  --live:#a8741c; --live-soft:#f8f0de; --free:#f1efeb;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1013; --surface:#171920; --ink:#e8ebf1; --muted:#8a93a3; --hairline:#272b35;
+    --deck-a:#22d3ee; --deck-b:#f472b6;
+    --fx:#a5b4fc; --fx-soft:#1d1b38; --pal:#5eead4; --pal-soft:#0c2a26;
+    --live:#e0a53c; --live-soft:#2f2611; --free:#1b1e25;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1013; --surface:#171920; --ink:#e8ebf1; --muted:#8a93a3; --hairline:#272b35;
+  --deck-a:#22d3ee; --deck-b:#f472b6;
+  --fx:#a5b4fc; --fx-soft:#1d1b38; --pal:#5eead4; --pal-soft:#0c2a26;
+  --live:#e0a53c; --live-soft:#2f2611; --free:#1b1e25;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  font-size:14px; line-height:1.45;
+}
+.sheet{max-width:1180px; margin:0 auto; padding-block:28px; padding-left:20px; padding-right:20px;}
+
+header{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 18px; margin-bottom:18px;}
+h1{
+  font-family:"Barlow Condensed","Arial Narrow",sans-serif;
+  font-weight:700; font-size:34px; letter-spacing:.02em; margin:0; text-wrap:balance;
+}
+.sub{color:var(--muted); font-size:13px;}
+.sub code{font-family:"IBM Plex Mono",monospace; font-size:12px;}
+
+.panel{
+  display:grid;
+  grid-template-columns:20px repeat(4, 1fr) 13px repeat(4, 1fr) 1.15fr;
+  gap:5px; align-items:stretch;
+  background:var(--surface); border:1px solid var(--hairline); border-radius:10px;
+  padding:12px; margin-bottom:16px;
+}
+.zone{
+  writing-mode:vertical-rl; transform:rotate(180deg);
+  display:flex; align-items:center; justify-content:center;
+  font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:11px;
+  letter-spacing:.22em; color:var(--muted);
+}
+.cell{
+  border:1px solid var(--hairline); border-radius:5px; padding:5px 6px;
+  min-height:44px; display:flex; flex-direction:column; justify-content:space-between; gap:2px;
+  background:var(--free);
+}
+.num{
+  font-family:"IBM Plex Mono",monospace; font-size:9px; color:var(--muted);
+  letter-spacing:.04em; font-variant-numeric:tabular-nums;
+}
+.name{
+  font-family:"Barlow Condensed",sans-serif; font-weight:600; font-size:14px; line-height:1.1;
+}
+.cell.fx{background:var(--fx-soft); border-color:color-mix(in srgb, var(--fx) 35%, transparent);}
+.cell.fx .name{color:var(--fx);}
+.cell.pal{background:var(--pal-soft); border-color:color-mix(in srgb, var(--pal) 35%, transparent);}
+.cell.pal .name{color:var(--pal);}
+.cell.color{border-color:rgba(0,0,0,.28);}
+.cell.color .num{color:inherit; opacity:.65;}
+.gap{}
+.head{
+  display:flex; align-items:end; justify-content:center; padding-bottom:3px;
+  font-family:"Barlow Condensed",sans-serif; font-weight:800; font-size:12px;
+  letter-spacing:.2em;
+}
+.head.a{color:var(--deck-a);} .head.b{color:var(--deck-b);} .head.right{color:var(--live);}
+.cell.empty .name{color:var(--muted); font-weight:400; font-style:italic;}
+.cell.live{background:var(--live-soft); border-color:color-mix(in srgb, var(--live) 40%, transparent);}
+.cell.live .name{color:var(--live);}
+.cell.fader{min-height:52px;}
+.cell.fader .name{font-size:13px;}
+.spacer{grid-column:1;}
+
+.legend{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:14px;}
+.note{
+  background:var(--surface); border:1px solid var(--hairline); border-radius:10px; padding:12px 14px;
+}
+.note h2{
+  font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:12px;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin:0 0 8px;
+}
+.note p{margin:0 0 8px; font-size:12.5px;}
+.note p:last-child{margin-bottom:0;}
+.note ul{margin:0; padding-left:16px; font-size:12.5px;}
+.note li{margin-bottom:3px;}
+kbd{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; background:var(--free);
+  border:1px solid var(--hairline); border-radius:4px; padding:1px 5px;
+}
+.swatch{display:inline-block; width:10px; height:10px; border-radius:2px; vertical-align:middle; margin-right:5px;}
+footer{margin-top:16px; color:var(--muted); font-size:11px;}
+
+@media (max-width:760px){
+  .panel{grid-template-columns:16px repeat(4,1fr); font-size:12px;}
+  .gap{display:none;}
+  .zone{display:none;}
+}
+@media print{
+  :root{
+    --paper:#fff; --surface:#fff; --ink:#000; --muted:#555; --hairline:#bbb;
+    --deck-a:#06697d; --deck-b:#a42a5c;
+    --fx:#312ba8; --fx-soft:#f0effb; --pal:#0b5f58; --pal-soft:#eaf5f3;
+    --live:#7d5510; --live-soft:#fbf4e4; --free:#f4f3f1;
+  }
+  @page{size:A4 landscape; margin:9mm;}
+  body{background:#fff;}
+  .sheet{max-width:none; padding:0;}
+  .panel, .note{break-inside:avoid;}
+  h1{font-size:26px;}
+}
+</style>
+<div class="sheet">
+<header>
+  <h1>APC mini mk2 mapping</h1>
+  <span class="sub">leddeck · port <code>APC mini mk2 Control</code> · channel 1 ·
+  mapping <code>apcmini-mk2.json</code></span>
+</header>
+
+<div class="panel">
+<div class="spacer"></div>
+<div class="head a" style="grid-column:span 4">DECK A</div>
+<div class="gap"></div>
+<div class="head b" style="grid-column:span 4">DECK B</div>
+<div class="head right">MASTER</div>
+<div class="zone" style="grid-row:span 3">EFFECTS</div>
+<div class="cell fx"><span class="num">56</span><span class="name">Rainbow</span></div>
+<div class="cell fx"><span class="num">57</span><span class="name">Blob</span></div>
+<div class="cell fx"><span class="num">58</span><span class="name">Starfield</span></div>
+<div class="cell fx"><span class="num">59</span><span class="name">Lightning</span></div>
+<div class="gap"></div>
+<div class="cell fx"><span class="num">60</span><span class="name">Rainbow</span></div>
+<div class="cell fx"><span class="num">61</span><span class="name">Blob</span></div>
+<div class="cell fx"><span class="num">62</span><span class="name">Starfield</span></div>
+<div class="cell fx"><span class="num">63</span><span class="name">Lightning</span></div>
+<div class="cell live"><span class="num">112</span><span class="name">Tap tempo</span></div>
+<div class="cell fx"><span class="num">48</span><span class="name">Electric</span></div>
+<div class="cell fx"><span class="num">49</span><span class="name">Solid</span></div>
+<div class="cell fx"><span class="num">50</span><span class="name">Shape</span></div>
+<div class="cell fx"><span class="num">51</span><span class="name">Line</span></div>
+<div class="gap"></div>
+<div class="cell fx"><span class="num">52</span><span class="name">Electric</span></div>
+<div class="cell fx"><span class="num">53</span><span class="name">Solid</span></div>
+<div class="cell fx"><span class="num">54</span><span class="name">Shape</span></div>
+<div class="cell fx"><span class="num">55</span><span class="name">Line</span></div>
+<div class="cell live"><span class="num">113</span><span class="name">Crossfade auto</span></div>
+<div class="cell fx"><span class="num">40</span><span class="name">Neon</span></div>
+<div class="cell fx"><span class="num">41</span><span class="name">Black</span></div>
+<div class="cell fx"><span class="num">42</span><span class="name">Rain</span></div>
+<div class="cell fx"><span class="num">43</span><span class="name">Pulse</span></div>
+<div class="gap"></div>
+<div class="cell fx"><span class="num">44</span><span class="name">Neon</span></div>
+<div class="cell fx"><span class="num">45</span><span class="name">Black</span></div>
+<div class="cell fx"><span class="num">46</span><span class="name">Rain</span></div>
+<div class="cell fx"><span class="num">47</span><span class="name">Pulse</span></div>
+<div class="cell live"><span class="num">114</span><span class="name">Auto — 8 pulsations</span></div>
+<div class="zone" style="grid-row:span 3">PALETTES</div>
+<div class="cell pal"><span class="num">32</span><span class="name">Rainbow</span></div>
+<div class="cell pal"><span class="num">33</span><span class="name">Neon</span></div>
+<div class="cell pal"><span class="num">34</span><span class="name">Club</span></div>
+<div class="cell pal"><span class="num">35</span><span class="name">Fire</span></div>
+<div class="gap"></div>
+<div class="cell pal"><span class="num">36</span><span class="name">Rainbow</span></div>
+<div class="cell pal"><span class="num">37</span><span class="name">Neon</span></div>
+<div class="cell pal"><span class="num">38</span><span class="name">Club</span></div>
+<div class="cell pal"><span class="num">39</span><span class="name">Fire</span></div>
+<div class="cell live"><span class="num">115</span><span class="name">Auto — 16 pulsations</span></div>
+<div class="cell pal"><span class="num">24</span><span class="name">Ember</span></div>
+<div class="cell pal"><span class="num">25</span><span class="name">Ocean</span></div>
+<div class="cell pal"><span class="num">26</span><span class="name">Ice</span></div>
+<div class="cell pal"><span class="num">27</span><span class="name">Sunset</span></div>
+<div class="gap"></div>
+<div class="cell pal"><span class="num">28</span><span class="name">Ember</span></div>
+<div class="cell pal"><span class="num">29</span><span class="name">Ocean</span></div>
+<div class="cell pal"><span class="num">30</span><span class="name">Ice</span></div>
+<div class="cell pal"><span class="num">31</span><span class="name">Sunset</span></div>
+<div class="cell live"><span class="num">116</span><span class="name">Auto — 32 pulsations</span></div>
+<div class="cell pal"><span class="num">16</span><span class="name">Mint</span></div>
+<div class="cell pal"><span class="num">17</span><span class="name">Purple</span></div>
+<div class="cell pal"><span class="num">18</span><span class="name">White</span></div>
+<div class="cell pal"><span class="num">19</span><span class="name">Red</span></div>
+<div class="gap"></div>
+<div class="cell pal"><span class="num">20</span><span class="name">Mint</span></div>
+<div class="cell pal"><span class="num">21</span><span class="name">Purple</span></div>
+<div class="cell pal"><span class="num">22</span><span class="name">White</span></div>
+<div class="cell pal"><span class="num">23</span><span class="name">Red</span></div>
+<div class="cell live"><span class="num">117</span><span class="name">Son réactif · bascule on/off</span></div>
+<div class="zone" style="grid-row:span 2">COLOURS</div>
+<div class="cell color" style="background:rgb(255,0,0);color:#ffffff;"><span class="num">8</span><span class="name">Red</span></div>
+<div class="cell color" style="background:rgb(255,89,0);color:#ffffff;"><span class="num">9</span><span class="name">Orange</span></div>
+<div class="cell color" style="background:rgb(255,229,0);color:#101010;"><span class="num">10</span><span class="name">Yellow</span></div>
+<div class="cell color" style="background:rgb(0,255,38);color:#101010;"><span class="num">11</span><span class="name">Green</span></div>
+<div class="gap"></div>
+<div class="cell color" style="background:rgb(255,0,0);color:#ffffff;"><span class="num">12</span><span class="name">Red</span></div>
+<div class="cell color" style="background:rgb(255,89,0);color:#ffffff;"><span class="num">13</span><span class="name">Orange</span></div>
+<div class="cell color" style="background:rgb(255,229,0);color:#101010;"><span class="num">14</span><span class="name">Yellow</span></div>
+<div class="cell color" style="background:rgb(0,255,38);color:#101010;"><span class="num">15</span><span class="name">Green</span></div>
+<div class="cell live empty"><span class="num">118</span><span class="name">libre</span></div>
+<div class="cell color" style="background:rgb(0,216,255);color:#101010;"><span class="num">0</span><span class="name">Cyan</span></div>
+<div class="cell color" style="background:rgb(25,51,255);color:#ffffff;"><span class="num">1</span><span class="name">Blue</span></div>
+<div class="cell color" style="background:rgb(255,25,153);color:#ffffff;"><span class="num">2</span><span class="name">Pink</span></div>
+<div class="cell color" style="background:rgb(255,255,255);color:#101010;"><span class="num">3</span><span class="name">White</span></div>
+<div class="gap"></div>
+<div class="cell color" style="background:rgb(0,216,255);color:#101010;"><span class="num">4</span><span class="name">Cyan</span></div>
+<div class="cell color" style="background:rgb(25,51,255);color:#ffffff;"><span class="num">5</span><span class="name">Blue</span></div>
+<div class="cell color" style="background:rgb(255,25,153);color:#ffffff;"><span class="num">6</span><span class="name">Pink</span></div>
+<div class="cell color" style="background:rgb(255,255,255);color:#101010;"><span class="num">7</span><span class="name">White</span></div>
+<div class="cell live empty"><span class="num">119</span><span class="name">libre</span></div>
+<div class="spacer"></div>
+<div class="cell live"><span class="num">100</span><span class="name">Électrique · tant qu&#x27;on appuie</span></div>
+<div class="cell live"><span class="num">101</span><span class="name">Électrique · bascule on/off</span></div>
+<div class="cell live"><span class="num">102</span><span class="name">Strobe · tant qu&#x27;on appuie</span></div>
+<div class="cell live"><span class="num">103</span><span class="name">Strobe · bascule on/off</span></div>
+<div class="gap"></div>
+<div class="cell live"><span class="num">104</span><span class="name">Flash · tant qu&#x27;on appuie</span></div>
+<div class="cell live"><span class="num">105</span><span class="name">Flash · bascule on/off</span></div>
+<div class="cell live"><span class="num">106</span><span class="name">Blackout · tant qu&#x27;on appuie</span></div>
+<div class="cell live"><span class="num">107</span><span class="name">Blackout · bascule on/off</span></div>
+<div class="cell live"><span class="num">122</span><span class="name">Shift</span></div>
+<div class="spacer"></div>
+<div class="cell fader"><span class="num">CC 48</span><span class="name">Deck A — réglage 1</span></div>
+<div class="cell fader"><span class="num">CC 49</span><span class="name">Deck A — réglage 2</span></div>
+<div class="cell fader"><span class="num">CC 50</span><span class="name">Deck A — réglage 3</span></div>
+<div class="cell fader"><span class="num">CC 51</span><span class="name">Luminosité master</span></div>
+<div class="gap"></div>
+<div class="cell fader"><span class="num">CC 52</span><span class="name">Deck B — réglage 1</span></div>
+<div class="cell fader"><span class="num">CC 53</span><span class="name">Deck B — réglage 2</span></div>
+<div class="cell fader"><span class="num">CC 54</span><span class="name">Deck B — réglage 3</span></div>
+<div class="cell fader"><span class="num">CC 55</span><span class="name">Vitesse globale</span></div>
+<div class="cell fader live"><span class="num">CC 56</span><span class="name">Crossfader</span></div>
+</div>
+
+<div class="legend">
+
+  <div class="note">
+    <h2>Three zones in the grid</h2>
+    <p>Rows&nbsp;1&nbsp;to&nbsp;3&nbsp;: effects. Rows&nbsp;4&nbsp;to&nbsp;6&nbsp;: palettes.
+    Rows&nbsp;7&nbsp;and&nbsp;8&nbsp;: eight solid colours, which stand in for the custom
+    palette — one press puts the deck on that colour.</p>
+  </div>
+  <div class="note">
+    <h2>Reading the numbers</h2>
+    <p>Pads carry their note number, faders their CC number.
+    On the grid&nbsp;: <code>note = row from the bottom × 8 + column</code>,
+    and the bottom-left pad is <code>0</code>.</p>
+    <p>Measured on the hardware, not taken from the documentation.</p>
+  </div>
+  <div class="note">
+    <h2>Colours</h2>
+    <p><span class="swatch" style="background:var(--fx)"></span>Effects<br>
+    <span class="swatch" style="background:var(--pal)"></span>Palettes<br>
+    <span class="swatch" style="background:var(--live)"></span>Live and master functions</p>
+    <p>The bottom pads carry their real colour. Deck&nbsp;A left of the split,
+    deck&nbsp;B right.</p>
+    <p>Effects light <strong>dim white</strong> at rest and <strong>blinking white</strong>
+    while they play. Palettes take the deck colour, live functions their own colour, and the
+    two bottom rows their own hue.</p>
+  </div>
+  <div class="note">
+    <h2>Two ways to press</h2>
+    <p><strong>While held</strong>&nbsp;: the effect lasts as long as the press and stops on
+    release. That is the strobe or kill gesture.</p>
+    <p><strong>On/off latch</strong>&nbsp;: one press engages, another releases.
+    Blackout exists in both forms — pick the gesture you want.</p>
+  </div>
+  <div class="note">
+    <h2>Faders&nbsp;: soft takeover</h2>
+    <p>A fader only takes over once it is back on the current value, and re-arms as soon as
+    the value changes elsewhere (mouse, auto-mix).</p>
+    <p>Brushing a fader therefore never makes a setting jump.</p>
+  </div>
+  <div class="note">
+    <h2>Keyboard</h2>
+    <ul>
+      <li><kbd>S</kbd> strobe · <kbd>E</kbd> electric</li>
+      <li><kbd>space</kbd> flash · <kbd>B</kbd> blackout</li>
+      <li><kbd>Shift</kbd> + the same key&nbsp;: latch instead of hold</li>
+    </ul>
+  </div>
+</div>
+
+<footer>Generated by <code>leddeck midi sheet</code> from the mapping — slots with no effect and no palette are free and assignable.</footer>
+</div>

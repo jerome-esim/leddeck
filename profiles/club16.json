@@ -1,0 +1,218 @@
+{
+  "name": "club16",
+  "matrix": {
+    "leds": 250,
+    "strips": 14
+  },
+  "fps": 40,
+  "gamma": 2.2,
+  "brightness": 1.0,
+  "audio_device": "Traktor Audio 10",
+  "audio_channels": [
+    0,
+    1
+  ],
+  "audio_gain": 1.0238469004284425,
+  "fav_effects": [],
+  "language": "fr",
+  "outputs": [
+    {
+      "id": 1,
+      "name": "WLED-01",
+      "ip": "192.168.8.10",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": ""
+    },
+    {
+      "id": 2,
+      "name": "WLED-08",
+      "ip": "192.168.8.17",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": ""
+    },
+    {
+      "id": 3,
+      "name": "WLED-10",
+      "ip": "192.168.8.19",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": ""
+    },
+    {
+      "id": 4,
+      "name": "WLED-15",
+      "ip": "192.168.8.24",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": ""
+    },
+    {
+      "id": 5,
+      "name": "WLED-16",
+      "ip": "192.168.8.25",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "ec64c9dcaebb"
+    },
+    {
+      "id": 6,
+      "name": "WLED-04",
+      "ip": "192.168.8.13",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "c4d8d512e0c7"
+    },
+    {
+      "id": 7,
+      "name": "WLED-03",
+      "ip": "192.168.8.12",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "ec64c9de2a8d"
+    },
+    {
+      "id": 8,
+      "name": "WLED-02",
+      "ip": "192.168.8.11",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "c4d8d512e694"
+    },
+    {
+      "id": 9,
+      "name": "WLED-14",
+      "ip": "192.168.8.23",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "c4d8d512dc7e"
+    },
+    {
+      "id": 10,
+      "name": "WLED-11",
+      "ip": "192.168.8.20",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "c4d8d512bbb4"
+    },
+    {
+      "id": 11,
+      "name": "WLED-09",
+      "ip": "192.168.8.18",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "a4f00f903da4"
+    },
+    {
+      "id": 12,
+      "name": "WLED-13",
+      "ip": "192.168.8.22",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "a4f00f9030b0"
+    },
+    {
+      "id": 13,
+      "name": "WLED-05",
+      "ip": "192.168.8.14",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "a4f00f699360"
+    },
+    {
+      "id": 14,
+      "name": "WLED-06",
+      "ip": "192.168.8.15",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "c4d8d512d25a"
+    }
+  ],
+  "patch": [
+    {
+      "output_id": 1,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 2,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 3,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 4,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 5,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 6,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 7,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 8,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 9,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 10,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 11,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 12,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 13,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 14,
+      "reverse": false,
+      "offset": 0
+    }
+  ]
+}

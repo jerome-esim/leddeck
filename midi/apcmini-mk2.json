@@ -1,0 +1,755 @@
+{
+  "name": "apcmini-mk2",
+  "port": "APC mini mk2 Control",
+  "bindings": {
+    "cc:0:48": {
+      "action": "deck.param",
+      "args": {
+        "deck": "a",
+        "index": 0
+      },
+      "label": "Deck A — réglage 1"
+    },
+    "cc:0:49": {
+      "action": "deck.param",
+      "args": {
+        "deck": "a",
+        "index": 1
+      },
+      "label": "Deck A — réglage 2"
+    },
+    "cc:0:50": {
+      "action": "deck.param",
+      "args": {
+        "deck": "a",
+        "index": 2
+      },
+      "label": "Deck A — réglage 3"
+    },
+    "cc:0:51": {
+      "action": "master.brightness",
+      "label": "Luminosité master"
+    },
+    "cc:0:52": {
+      "action": "deck.param",
+      "args": {
+        "deck": "b",
+        "index": 0
+      },
+      "label": "Deck B — réglage 1"
+    },
+    "cc:0:53": {
+      "action": "deck.param",
+      "args": {
+        "deck": "b",
+        "index": 1
+      },
+      "label": "Deck B — réglage 2"
+    },
+    "cc:0:54": {
+      "action": "deck.param",
+      "args": {
+        "deck": "b",
+        "index": 2
+      },
+      "label": "Deck B — réglage 3"
+    },
+    "cc:0:55": {
+      "action": "master.speed",
+      "label": "Vitesse globale"
+    },
+    "cc:0:56": {
+      "action": "crossfade",
+      "label": "Crossfader"
+    },
+    "note:0:0": {
+      "action": "deck.color",
+      "args": {
+        "deck": "a",
+        "rgb": [
+          0.0,
+          0.85,
+          1.0
+        ],
+        "pad": 33
+      },
+      "label": "Cyan"
+    },
+    "note:0:1": {
+      "action": "deck.color",
+      "args": {
+        "deck": "a",
+        "rgb": [
+          0.1,
+          0.2,
+          1.0
+        ],
+        "pad": 45
+      },
+      "label": "Bleu"
+    },
+    "note:0:10": {
+      "action": "deck.color",
+      "args": {
+        "deck": "a",
+        "rgb": [
+          1.0,
+          0.9,
+          0.0
+        ],
+        "pad": 13
+      },
+      "label": "Jaune"
+    },
+    "note:0:100": {
+      "action": "master.hold",
+      "args": {
+        "name": "electric",
+        "mode": "momentary"
+      },
+      "label": "Électrique · tant qu'on appuie"
+    },
+    "note:0:101": {
+      "action": "master.hold",
+      "args": {
+        "name": "electric",
+        "mode": "latch"
+      },
+      "label": "Électrique · bascule on/off"
+    },
+    "note:0:102": {
+      "action": "master.hold",
+      "args": {
+        "name": "strobe",
+        "mode": "momentary"
+      },
+      "label": "Strobe · tant qu'on appuie"
+    },
+    "note:0:103": {
+      "action": "master.hold",
+      "args": {
+        "name": "strobe",
+        "mode": "latch"
+      },
+      "label": "Strobe · bascule on/off"
+    },
+    "note:0:104": {
+      "action": "master.hold",
+      "args": {
+        "name": "flash",
+        "mode": "momentary"
+      },
+      "label": "Flash · tant qu'on appuie"
+    },
+    "note:0:105": {
+      "action": "master.hold",
+      "args": {
+        "name": "flash",
+        "mode": "latch"
+      },
+      "label": "Flash · bascule on/off"
+    },
+    "note:0:106": {
+      "action": "master.hold",
+      "args": {
+        "name": "blackout",
+        "mode": "momentary"
+      },
+      "label": "Blackout · tant qu'on appuie"
+    },
+    "note:0:107": {
+      "action": "master.hold",
+      "args": {
+        "name": "blackout",
+        "mode": "latch"
+      },
+      "label": "Blackout · bascule on/off"
+    },
+    "note:0:11": {
+      "action": "deck.color",
+      "args": {
+        "deck": "a",
+        "rgb": [
+          0.0,
+          1.0,
+          0.15
+        ],
+        "pad": 21
+      },
+      "label": "Vert"
+    },
+    "note:0:112": {
+      "action": "tap",
+      "label": "Tap tempo"
+    },
+    "note:0:113": {
+      "action": "auto.toggle",
+      "label": "Crossfade auto"
+    },
+    "note:0:114": {
+      "action": "auto.beats",
+      "args": {
+        "beats": 8
+      },
+      "label": "Auto — 8 pulsations"
+    },
+    "note:0:115": {
+      "action": "auto.beats",
+      "args": {
+        "beats": 16
+      },
+      "label": "Auto — 16 pulsations"
+    },
+    "note:0:116": {
+      "action": "auto.beats",
+      "args": {
+        "beats": 32
+      },
+      "label": "Auto — 32 pulsations"
+    },
+    "note:0:117": {
+      "action": "master.audio",
+      "label": "Son réactif · bascule on/off"
+    },
+    "note:0:12": {
+      "action": "deck.color",
+      "args": {
+        "deck": "b",
+        "rgb": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "pad": 5
+      },
+      "label": "Rouge"
+    },
+    "note:0:13": {
+      "action": "deck.color",
+      "args": {
+        "deck": "b",
+        "rgb": [
+          1.0,
+          0.35,
+          0.0
+        ],
+        "pad": 9
+      },
+      "label": "Orange"
+    },
+    "note:0:14": {
+      "action": "deck.color",
+      "args": {
+        "deck": "b",
+        "rgb": [
+          1.0,
+          0.9,
+          0.0
+        ],
+        "pad": 13
+      },
+      "label": "Jaune"
+    },
+    "note:0:15": {
+      "action": "deck.color",
+      "args": {
+        "deck": "b",
+        "rgb": [
+          0.0,
+          1.0,
+          0.15
+        ],
+        "pad": 21
+      },
+      "label": "Vert"
+    },
+    "note:0:16": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 9
+      },
+      "label": "Deck A — palette 9"
+    },
+    "note:0:17": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 10
+      },
+      "label": "Deck A — palette 10"
+    },
+    "note:0:18": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 11
+      },
+      "label": "Deck A — palette 11"
+    },
+    "note:0:19": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 12
+      },
+      "label": "Deck A — palette 12"
+    },
+    "note:0:2": {
+      "action": "deck.color",
+      "args": {
+        "deck": "a",
+        "rgb": [
+          1.0,
+          0.1,
+          0.6
+        ],
+        "pad": 53
+      },
+      "label": "Rose"
+    },
+    "note:0:20": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 9
+      },
+      "label": "Deck B — palette 9"
+    },
+    "note:0:21": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 10
+      },
+      "label": "Deck B — palette 10"
+    },
+    "note:0:22": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 11
+      },
+      "label": "Deck B — palette 11"
+    },
+    "note:0:23": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 12
+      },
+      "label": "Deck B — palette 12"
+    },
+    "note:0:24": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 5
+      },
+      "label": "Deck A — palette 5"
+    },
+    "note:0:25": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 6
+      },
+      "label": "Deck A — palette 6"
+    },
+    "note:0:26": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 7
+      },
+      "label": "Deck A — palette 7"
+    },
+    "note:0:27": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 8
+      },
+      "label": "Deck A — palette 8"
+    },
+    "note:0:28": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 5
+      },
+      "label": "Deck B — palette 5"
+    },
+    "note:0:29": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 6
+      },
+      "label": "Deck B — palette 6"
+    },
+    "note:0:3": {
+      "action": "deck.color",
+      "args": {
+        "deck": "a",
+        "rgb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "pad": 3
+      },
+      "label": "Blanc"
+    },
+    "note:0:30": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 7
+      },
+      "label": "Deck B — palette 7"
+    },
+    "note:0:31": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 8
+      },
+      "label": "Deck B — palette 8"
+    },
+    "note:0:32": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 1
+      },
+      "label": "Deck A — palette 1"
+    },
+    "note:0:33": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 2
+      },
+      "label": "Deck A — palette 2"
+    },
+    "note:0:34": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 3
+      },
+      "label": "Deck A — palette 3"
+    },
+    "note:0:35": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "a",
+        "index": 4
+      },
+      "label": "Deck A — palette 4"
+    },
+    "note:0:36": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 1
+      },
+      "label": "Deck B — palette 1"
+    },
+    "note:0:37": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 2
+      },
+      "label": "Deck B — palette 2"
+    },
+    "note:0:38": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 3
+      },
+      "label": "Deck B — palette 3"
+    },
+    "note:0:39": {
+      "action": "deck.palette",
+      "args": {
+        "deck": "b",
+        "index": 4
+      },
+      "label": "Deck B — palette 4"
+    },
+    "note:0:4": {
+      "action": "deck.color",
+      "args": {
+        "deck": "b",
+        "rgb": [
+          0.0,
+          0.85,
+          1.0
+        ],
+        "pad": 33
+      },
+      "label": "Cyan"
+    },
+    "note:0:40": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 8
+      },
+      "label": "Deck A — effet 9"
+    },
+    "note:0:41": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 9
+      },
+      "label": "Deck A — effet 10"
+    },
+    "note:0:42": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 10
+      },
+      "label": "Deck A — effet 11"
+    },
+    "note:0:43": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 11
+      },
+      "label": "Deck A — effet 12"
+    },
+    "note:0:44": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 8
+      },
+      "label": "Deck B — effet 9"
+    },
+    "note:0:45": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 9
+      },
+      "label": "Deck B — effet 10"
+    },
+    "note:0:46": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 10
+      },
+      "label": "Deck B — effet 11"
+    },
+    "note:0:47": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 11
+      },
+      "label": "Deck B — effet 12"
+    },
+    "note:0:48": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 4
+      },
+      "label": "Deck A — effet 5"
+    },
+    "note:0:49": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 5
+      },
+      "label": "Deck A — effet 6"
+    },
+    "note:0:5": {
+      "action": "deck.color",
+      "args": {
+        "deck": "b",
+        "rgb": [
+          0.1,
+          0.2,
+          1.0
+        ],
+        "pad": 45
+      },
+      "label": "Bleu"
+    },
+    "note:0:50": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 6
+      },
+      "label": "Deck A — effet 7"
+    },
+    "note:0:51": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 7
+      },
+      "label": "Deck A — effet 8"
+    },
+    "note:0:52": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 4
+      },
+      "label": "Deck B — effet 5"
+    },
+    "note:0:53": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 5
+      },
+      "label": "Deck B — effet 6"
+    },
+    "note:0:54": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 6
+      },
+      "label": "Deck B — effet 7"
+    },
+    "note:0:55": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 7
+      },
+      "label": "Deck B — effet 8"
+    },
+    "note:0:56": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 0
+      },
+      "label": "Deck A — effet 1"
+    },
+    "note:0:57": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 1
+      },
+      "label": "Deck A — effet 2"
+    },
+    "note:0:58": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 2
+      },
+      "label": "Deck A — effet 3"
+    },
+    "note:0:59": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "a",
+        "index": 3
+      },
+      "label": "Deck A — effet 4"
+    },
+    "note:0:6": {
+      "action": "deck.color",
+      "args": {
+        "deck": "b",
+        "rgb": [
+          1.0,
+          0.1,
+          0.6
+        ],
+        "pad": 53
+      },
+      "label": "Rose"
+    },
+    "note:0:60": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 0
+      },
+      "label": "Deck B — effet 1"
+    },
+    "note:0:61": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 1
+      },
+      "label": "Deck B — effet 2"
+    },
+    "note:0:62": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 2
+      },
+      "label": "Deck B — effet 3"
+    },
+    "note:0:63": {
+      "action": "deck.effect",
+      "args": {
+        "deck": "b",
+        "index": 3
+      },
+      "label": "Deck B — effet 4"
+    },
+    "note:0:7": {
+      "action": "deck.color",
+      "args": {
+        "deck": "b",
+        "rgb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "pad": 3
+      },
+      "label": "Blanc"
+    },
+    "note:0:8": {
+      "action": "deck.color",
+      "args": {
+        "deck": "a",
+        "rgb": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "pad": 5
+      },
+      "label": "Rouge"
+    },
+    "note:0:9": {
+      "action": "deck.color",
+      "args": {
+        "deck": "a",
+        "rgb": [
+          1.0,
+          0.35,
+          0.0
+        ],
+        "pad": 9
+      },
+      "label": "Orange"
+    }
+  }
+}

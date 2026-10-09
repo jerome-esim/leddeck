@@ -1,0 +1,93 @@
+{
+  "name": "default",
+  "matrix": {
+    "leds": 250,
+    "strips": 16
+  },
+  "fps": 40,
+  "gamma": 2.2,
+  "brightness": 1.0,
+  "outputs": [],
+  "patch": [
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    }
+  ]
+}

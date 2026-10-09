@@ -1,0 +1,126 @@
+{
+  "name": "demo16",
+  "matrix": {
+    "leds": 250,
+    "strips": 16
+  },
+  "fps": 40,
+  "gamma": 2.2,
+  "brightness": 1.0,
+  "audio_device": "",
+  "audio_channels": [],
+  "audio_gain": 1.0,
+  "fav_effects": [],
+  "language": "fr",
+  "outputs": [
+    {
+      "id": 1,
+      "name": "WLED-01",
+      "ip": "192.168.8.10",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "08b61f365558"
+    },
+    {
+      "id": 2,
+      "name": "WLED-10",
+      "ip": "192.168.8.19",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "c4d8d512c8dc"
+    },
+    {
+      "id": 3,
+      "name": "WLED-15",
+      "ip": "192.168.8.24",
+      "led_count": 250,
+      "port": 4048,
+      "enabled": true,
+      "mac": "ec64c9dd7383"
+    }
+  ],
+  "patch": [
+    {
+      "output_id": 1,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 2,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": 3,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    },
+    {
+      "output_id": null,
+      "reverse": false,
+      "offset": 0
+    }
+  ]
+}

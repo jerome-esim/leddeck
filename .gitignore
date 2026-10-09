@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+dist/
+*.spec
+.DS_Store
+
+# fichiers de session
+*.log
+.uv/
