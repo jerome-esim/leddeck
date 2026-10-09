@@ -8,6 +8,11 @@ and a laptop that has to survive a whole night without being touched.
 
 ![status](https://img.shields.io/badge/python-3.12-blue) ![status](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 
+![The live page: two decks, a crossfader, and the mix being sent to the strips](docs/live.png)
+
+*Deck A running Vortex on the Neon palette, deck B running Rain on Fire, mixed at 58/42.
+The bar at the top is what the 14 tubes are actually showing.*
+
 ---
 
 ## What it does
@@ -66,8 +71,13 @@ uv run leddeck --profile club discover
 uv run leddeck --profile club ui
 ```
 
-On the **Installation** page: scan, patch each output to a matrix row, hit *identify*
-to see which physical tube is which, then switch to **Live**.
+On the **Setup** page: scan, patch each output to a matrix row, hit *identify* to see
+which physical tube is which, then switch to **Live**.
+
+![The setup page: discovered WLED outputs on the left, the patch on the right](docs/setup.png)
+
+Strips can be installed in any order and put back in order here — the patch decides which
+output feeds which matrix row, and whether it runs reversed.
 
 ### Command line
 

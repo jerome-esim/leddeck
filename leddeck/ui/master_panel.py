@@ -241,7 +241,7 @@ class MasterPanel(QWidget):
         self.strobe_hz.valueChanged.connect(lambda v: setattr(self.master, "strobe_hz", float(v)))
         self.strobe_division = QComboBox()
         for label, value in STROBE_DIVISIONS:
-            self.strobe_division.addItem(label, value)
+            self.strobe_division.addItem(tr(label), value)
         self.strobe_division.setCurrentIndex(
             [v for _, v in STROBE_DIVISIONS].index(self.master.strobe_division))
         self.strobe_division.currentIndexChanged.connect(

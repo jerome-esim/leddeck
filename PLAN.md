@@ -799,6 +799,9 @@ Mapping proposé par défaut (tout reste modifiable via MIDI learn) :
   appris dans `fx list` en anglais ne doit pas cesser de marcher en repassant au français.
   Le module vit en `leddeck/i18n.py` (et non dans `ui/`) : `main.py` s'en sert sans
   dépendre de Qt.
+- Captures du README : générées **hors écran** (`QT_QPA_PLATFORM=offscreen` + `QWidget.grab()`),
+  donc reproductibles sans toucher à la souris et régénérables après un changement d'interface.
+  `docs/live.png`, `docs/setup.png`.
 - **Publication GitHub** : `README.md` (anglais), `LICENSE` (MIT, association Eclipse),
   `PLAN.en.md` (traduction de ce document — **le français reste la référence**),
   `.gitignore` complété. Les profils de `profiles/` contiennent les IP privées du club
