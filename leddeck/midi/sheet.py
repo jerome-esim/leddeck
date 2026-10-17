@@ -120,7 +120,9 @@ kbd{
 .swatch{display:inline-block; width:10px; height:10px; border-radius:2px; vertical-align:middle; margin-right:5px;}
 footer{margin-top:16px; color:var(--muted); font-size:11px;}
 
-@media (max-width:760px){
+/* Ecran etroit seulement : sur le papier la largeur est celle de la page, et
+   cette mise en page compacte ferait exploser le nombre de pages. */
+@media screen and (max-width:760px){
   .panel{grid-template-columns:16px repeat(4,1fr); font-size:12px;}
   .gap{display:none;}
   .zone{display:none;}
@@ -135,8 +137,21 @@ footer{margin-top:16px; color:var(--muted); font-size:11px;}
   @page{size:A4 landscape; margin:9mm;}
   body{background:#fff;}
   .sheet{max-width:none; padding:0;}
+  /* « 1fr » vaut minmax(auto, 1fr) : une case au contenu long elargit sa colonne
+     et la grille deborde la page. minmax(0, 1fr) l'en empeche. */
+  .panel{
+    grid-template-columns:20px repeat(4, minmax(0,1fr)) 13px repeat(4, minmax(0,1fr)) minmax(0,1.15fr);
+    margin-bottom:0;
+  }
+  .name{overflow-wrap:anywhere;}
   .panel, .note{break-inside:avoid;}
+  /* Deux pages assumees : la grille du controleur seule, assez grande pour se lire
+     d'un coup d'oeil en cabine, puis les explications. Tout ramener sur une page
+     rendrait les pads illisibles — mesure faite, il manque 260 px sur 733. */
+  .legend{break-before:page; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px;}
+  header{margin-bottom:12px;}
   h1{font-size:26px;}
+  footer{margin-top:12px;}
 }
 """
 
@@ -370,3 +385,42 @@ def write_sheet(mapping: Mapping, path: Path, profile) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(build_html(mapping, profile))
     return path
+
+
+# Chrome imprime le HTML en respectant @page et @media print. Aucune autre
+# dependance : weasyprint ou wkhtmltopdf obligeraient a installer une pile
+# complete pour une fiche qu'on genere trois fois par an.
+BROWSERS = (
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "/Applications/Chromium.app/Contents/MacOS/Chromium",
+    "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
+    "google-chrome", "chromium", "chromium-browser", "microsoft-edge",
+)
+
+
+def find_browser() -> str | None:
+    import shutil
+    for candidate in BROWSERS:
+        if Path(candidate).exists():
+            return candidate
+        found = shutil.which(candidate)
+        if found:
+            return found
+    return None
+
+
+def write_pdf(html_path: Path, pdf_path: Path) -> Path:
+    """Imprime la fiche HTML en PDF A4 paysage (2 pages)."""
+    import subprocess
+
+    browser = find_browser()
+    if browser is None:
+        raise RuntimeError(tr(
+            "aucun navigateur Chrome / Chromium / Edge trouve pour produire le PDF ; "
+            "la fiche HTML reste imprimable depuis le navigateur (Cmd-P)"))
+    pdf_path.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(
+        [browser, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
+         f"--print-to-pdf={pdf_path}", html_path.resolve().as_uri()],
+        check=True, capture_output=True, timeout=120)
+    return pdf_path

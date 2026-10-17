@@ -513,10 +513,23 @@ Les libellés disent le geste en clair (« tant qu'on appuie » / « bascule on/
 **Tout est dans `midi/apcmini-mk2.json`** — rien n'est câblé en dur, c'est la base du MIDI learn.
 
 ### Fiche imprimable
-`leddeck midi sheet` génère une page A4 paysage **depuis le mapping** : disposition physique du
+`leddeck midi sheet [--pdf]` génère une page A4 paysage **depuis le mapping** : disposition physique du
 contrôleur, numéro de note ou de CC sur chaque case, couleurs des decks, et les emplacements
 libres signalés comme tels. Elle reste juste quand le mapping change, au lieu d'être recopiée
 à la main.
+
+**Le PDF** (`--pdf`) est imprimé par Chrome en mode headless : il respecte `@page` et
+`@media print`, et évite d'installer weasyprint ou wkhtmltopdf pour une fiche qu'on
+régénère trois fois par an. Deux pièges, tous deux trouvés en comptant les pages :
+- la règle `@media (max-width:760px)` s'appliquait **aussi au papier** — Chrome compose
+  l'impression à une largeur inférieure à 760 px, la mise en page mobile se déclenchait
+  et la fiche passait à **4 pages**. Elle est désormais limitée à `@media screen`.
+- `1fr` vaut `minmax(auto, 1fr)` : une case au libellé long élargit sa colonne et fait
+  déborder la grille. `minmax(0, 1fr)` l'en empêche.
+
+**Deux pages assumées** : la grille seule, assez grande pour se lire en cabine, puis les
+explications. Mesuré : le tout fait 992 px de haut pour 733 px imprimables — tout ramener
+sur une page rendrait les pads illisibles.
 
 ### Soft takeover
 Un fader ne prend la main qu'une fois revenu sur la valeur courante (tolérance 3 %, ou au

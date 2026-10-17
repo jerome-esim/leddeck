@@ -260,12 +260,19 @@ def cmd_midi_sheet(args) -> int:
     from pathlib import Path
 
     from .midi.mapping import Mapping
-    from .midi.sheet import write_sheet
+    from .midi.sheet import write_pdf, write_sheet
 
     prof = load(args)
     mapping = Mapping.load(args.mapping)
     path = write_sheet(mapping, Path(args.output), prof)
     print(tr("Fiche écrite : {}  ({} assignations)").format(path, len(mapping.bindings)))
+    if args.pdf:
+        try:
+            pdf = write_pdf(path, path.with_suffix(".pdf"))
+        except Exception as exc:
+            print(tr("PDF non produit : {}").format(exc), file=sys.stderr)
+            return 1
+        print(tr("PDF écrit : {}").format(pdf))
     return 0
 
 
@@ -737,6 +744,8 @@ def build_parser() -> argparse.ArgumentParser:
     ms = msub.add_parser("sheet", help=tr("fiche de mapping imprimable (HTML)"))
     ms.add_argument("--mapping", default="apcmini-mk2")
     ms.add_argument("--output", default="midi/mapping-apcmini-mk2.html")
+    ms.add_argument("--pdf", action="store_true",
+                    help=tr("produire aussi le PDF (via Chrome, A4 paysage)"))
     ms.set_defaults(func=cmd_midi_sheet)
 
     f = sub.add_parser("fx", help=tr("effets et palettes"))

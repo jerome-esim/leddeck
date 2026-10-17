@@ -91,13 +91,18 @@ output feeds which matrix row, and whether it runs reversed.
 | `leddeck test sweep` | test pattern on the whole matrix |
 | `leddeck fx list` / `fx run Serpent --palette Feu` | effects from the terminal |
 | `leddeck audio devices` / `audio monitor` / `audio leds` | audio input checks |
-| `leddeck midi ports` / `midi monitor` / `midi sheet` | MIDI checks, printable mapping sheet |
+| `leddeck midi ports` / `midi monitor` / `midi sheet --pdf` | MIDI checks, printable mapping sheet (HTML + PDF) |
 | `leddeck prepare` | configure the ESPs for the venue (see below) |
 | `leddeck diag` | diagnostic pattern on one output |
 | `leddeck off` / `leddeck on` | blackout and power the strips off / back on |
 
 `--profile <name>` and `--lang fr|en` are global and go **before** the command:
 `leddeck --profile club --lang en ui`. Without `--lang`, the profile's language is used.
+
+**Printable mapping sheet.** `midi/mapping-apcmini-mk2.pdf` (and `.en.pdf`) is the booth
+reference: A4 landscape, two pages — the controller grid at readable size, then the legend.
+It is generated **from the mapping file**, so it stays correct when the mapping changes:
+`leddeck midi sheet --pdf`.
 
 ## Hardware
 

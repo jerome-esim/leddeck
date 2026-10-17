@@ -368,6 +368,14 @@ EN: dict[str, str] = {
     "Sortie #{} inconnue dans le profil '{}'.": "Output #{} unknown in profile '{}'.",
     "  {:<14} {} couleurs, {}": "  {:<14} {} colours, {}",
     "cyclique": "cyclic",
+    "produire aussi le PDF (via Chrome, A4 paysage)":
+        "also produce the PDF (through Chrome, A4 landscape)",
+    "PDF écrit : {}": "PDF written: {}",
+    "PDF non produit : {}": "PDF not produced: {}",
+    "aucun navigateur Chrome / Chromium / Edge trouve pour produire le PDF ; "
+    "la fiche HTML reste imprimable depuis le navigateur (Cmd-P)":
+        "no Chrome / Chromium / Edge browser found to produce the PDF; the HTML sheet "
+        "is still printable from the browser (Cmd-P)",
     "tous les 8 beats": "every 8 beats",
     "tous les 4 beats": "every 4 beats",
     "tous les 2 beats": "every 2 beats",
