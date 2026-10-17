@@ -106,16 +106,20 @@ LED/
     core/      config.py ✅  engine.py ✅  params.py ✅  palette.py ✅  mixer.py ✅
     output/    ddp.py ✅  wled.py ✅ (discovery, state)  patch.py ✅
     audio/     input.py ✅  analysis.py ✅
-    midi/      midi.py ✅  actions.py ✅  mapping.py ✅  controller.py ✅
-    effects/   base.py ✅  serpent.py ✅  etoiles.py ✅  vague.py ✅
-               arcenciel.py ✅  pulse.py ✅  couleur.py ✅  tubes.py ✅
-               electrique.py ✅  neon.py ✅        (loaded automatically)
+    midi/      midi.py ✅  actions.py ✅  mapping.py ✅  controller.py ✅  sheet.py ✅
+    i18n.py                 ✅ French / English (outside ui/ so main.py uses it without Qt)
+    effects/   base.py ✅  arcenciel.py ✅  blob.py ✅  eclairs.py ✅  electrique.py ✅
+               etoiles.py ✅  fixe.py ✅  forme.py ✅  ligne.py ✅  neon.py ✅  noir.py ✅
+               pluie.py ✅  pulse.py ✅  serpent.py ✅  tubes.py ✅  vague.py ✅
+               vortex.py ✅                          (loaded automatically — 16 effects)
     install/   patterns.py ✅ (identification / test patterns)
     ui/        main_window.py ✅  preview.py ✅  deck_panel.py ✅  master_panel.py ✅
-               style.py ✅  thumbnails.py ✅  install_page.py ✅
-               midi_page.py  settings_page.py
-  profiles/    default.json ✅  club.json ✅  demo16.json ✅
-  midi/        apcmini-mk2.json ✅ (MIDI mappings)
+               style.py ✅  thumbnails.py ✅  install_page.py ✅  pads_dialog.py ✅
+               (midi_page.py and settings_page.py turned out unnecessary: setup is a
+                page, and the settings live in the panels)
+  profiles/    default.json ✅  club.json ✅  club16.json ✅  demo16.json ✅  test16.json ✅
+  midi/        apcmini-mk2.json ✅  mapping-apcmini-mk2[.en].html ✅ (printable sheets)
+  docs/        live.png ✅  setup.png ✅ (README screenshots, generated offscreen)
   presets/     (saved effects + palettes)
 ```
 
@@ -499,8 +503,9 @@ Rather than trusting the documentation, the numbers were **measured on the APC m
 | Shift | note **122** |
 
 ### Default mapping
-Grid: left half = deck A, right half = deck B; the 4 top rows = effects, the 4 bottom rows =
-palettes. Faders: A settings 1-3, brightness, B settings 1-3, global speed, crossfader.
+Grid: left half = deck A, right half = deck B; **rows 1 to 3 = effects, 4 to 6 = supplied
+palettes, 7 and 8 = eight solid colours** (they stand in for the custom palette). There are
+16 effects for 12 pads: the profile remembers which ones sit on the grid (see §11 bis). Faders: A settings 1-3, brightness, B settings 1-3, global speed, crossfader.
 Scene: tap, auto crossfade, auto 8/16/32 (three free buttons).
 
 **Bottom row: the 4 live functions × their 2 gestures**, in the same order every time — hold on the
@@ -726,10 +731,10 @@ Default proposed mapping (everything stays changeable through MIDI learn):
 
 | Control | Role |
 |---|---|
-| Pads columns 1-4, rows 1-4 | Deck A: 16 effects |
-| Pads columns 1-4, rows 5-8 | Deck A: 16 palettes (pads lit in the palette's colour) |
-| Pads columns 5-8, rows 1-4 | Deck B: 16 effects |
-| Pads columns 5-8, rows 5-8 | Deck B: 16 palettes |
+| Pads columns 1-4, rows 1-3 | Deck A: 12 chosen effects (see §11 bis) |
+| Pads columns 1-4, rows 4-6 | Deck A: 12 palettes (pads lit in the palette's colour) |
+| Pads columns 1-4, rows 7-8 | Deck A: 8 solid colours |
+| Pads columns 5-8 | Deck B, same layout |
 | Faders 1-3 | Deck A: speed, size, audio reactivity |
 | Faders 5-7 | Deck B: speed, size, audio reactivity |
 | Fader 4 | Master brightness |

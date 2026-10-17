@@ -103,16 +103,20 @@ LED/
     core/      config.py ✅  engine.py ✅  params.py ✅  palette.py ✅  mixer.py ✅
     output/    ddp.py ✅  wled.py ✅ (découverte, état)  patch.py ✅
     audio/     input.py ✅  analysis.py ✅
-    midi/      midi.py ✅  actions.py ✅  mapping.py ✅  controller.py ✅
-    effects/   base.py ✅  serpent.py ✅  etoiles.py ✅  vague.py ✅
-               arcenciel.py ✅  pulse.py ✅  couleur.py ✅  tubes.py ✅
-               electrique.py ✅  neon.py ✅        (chargés automatiquement)
+    midi/      midi.py ✅  actions.py ✅  mapping.py ✅  controller.py ✅  sheet.py ✅
+    i18n.py                 ✅ français / anglais (hors de ui/ : main.py s'en sert sans Qt)
+    effects/   base.py ✅  arcenciel.py ✅  blob.py ✅  eclairs.py ✅  electrique.py ✅
+               etoiles.py ✅  fixe.py ✅  forme.py ✅  ligne.py ✅  neon.py ✅  noir.py ✅
+               pluie.py ✅  pulse.py ✅  serpent.py ✅  tubes.py ✅  vague.py ✅
+               vortex.py ✅                          (chargés automatiquement — 16 effets)
     install/   patterns.py ✅ (motifs d'identification / test)
     ui/        main_window.py ✅  preview.py ✅  deck_panel.py ✅  master_panel.py ✅
-               style.py ✅  thumbnails.py ✅  install_page.py ✅
-               midi_page.py  settings_page.py
-  profiles/    default.json ✅  club.json ✅  demo16.json ✅
-  midi/        apcmini-mk2.json ✅ (mappings MIDI)
+               style.py ✅  thumbnails.py ✅  install_page.py ✅  pads_dialog.py ✅
+               (midi_page.py et settings_page.py n'ont pas été nécessaires :
+                l'installation est une page, les réglages vivent dans les panneaux)
+  profiles/    default.json ✅  club.json ✅  club16.json ✅  demo16.json ✅  test16.json ✅
+  midi/        apcmini-mk2.json ✅  mapping-apcmini-mk2[.en].html ✅ (fiches imprimables)
+  docs/        live.png ✅  setup.png ✅ (captures du README, générées hors écran)
   presets/     (effets + palettes sauvegardés)
 ```
 
@@ -495,8 +499,10 @@ avec `leddeck midi monitor` (port `APC mini mk2 Control`, canal 1) :
 | Shift | note **122** |
 
 ### Mapping par défaut
-Grille : moitié gauche = deck A, moitié droite = deck B ; 4 rangées du haut = effets,
-4 rangées du bas = palettes. Faders : réglages A 1-3, luminosité, réglages B 1-3, vitesse globale,
+Grille : moitié gauche = deck A, moitié droite = deck B ; **rangées 1 à 3 = effets,
+4 à 6 = palettes fournies, 7 et 8 = huit couleurs unies** (elles tiennent lieu de palette
+perso). Il y a 16 effets pour 12 pads : le profil retient lesquels sont posés sur la grille
+(cf. §11 bis). Faders : réglages A 1-3, luminosité, réglages B 1-3, vitesse globale,
 crossfader. Scene : tap, crossfade auto, auto 8/16/32 (trois boutons libres).
 
 **Rangée du bas : les 4 fonctions live × leurs 2 gestes**, dans le même ordre à chaque fois —
@@ -539,8 +545,9 @@ s'allument selon l'état. Seuls les changements sont envoyés : le MIDI est lent
 
 ## 8 octies. Étape 2 — Écran d'installation (2026-09-22)
 
-`leddeck --profile <nom> install` ouvre une **fenêtre séparée de l'interface live** — volontairement :
-deux moteurs qui émettraient en même temps sur les mêmes ESP se marcheraient dessus.
+*(Historique : cet écran a d'abord été une fenêtre séparée, parce que deux moteurs émettant
+en même temps vers les mêmes ESP se marcheraient dessus. Depuis le 2026-09-25 c'est une page
+de l'application unique, avec un seul moteur — cf. §11 bis.)*
 
 **Sorties WLED** : signal en direct (barres + dBm + qualité), état en ligne / hors ligne, version,
 nombre de LED. Interrogation toutes les 4 s **dans un thread séparé** : l'interface ne doit jamais
@@ -723,10 +730,10 @@ Mapping proposé par défaut (tout reste modifiable via MIDI learn) :
 
 | Contrôle | Rôle |
 |---|---|
-| Pads colonnes 1-4, rangées 1-4 | Deck A : 16 effets |
-| Pads colonnes 1-4, rangées 5-8 | Deck A : 16 palettes (pads allumés de la couleur de la palette) |
-| Pads colonnes 5-8, rangées 1-4 | Deck B : 16 effets |
-| Pads colonnes 5-8, rangées 5-8 | Deck B : 16 palettes |
+| Pads colonnes 1-4, rangées 1-3 | Deck A : 12 effets choisis (cf. §11 bis) |
+| Pads colonnes 1-4, rangées 4-6 | Deck A : 12 palettes (pads allumés de la couleur de la palette) |
+| Pads colonnes 1-4, rangées 7-8 | Deck A : 8 couleurs unies |
+| Pads colonnes 5-8 | Deck B, même disposition |
 | Faders 1-3 | Deck A : vitesse, taille, réactivité son |
 | Faders 5-7 | Deck B : vitesse, taille, réactivité son |
 | Fader 4 | Luminosité master |
